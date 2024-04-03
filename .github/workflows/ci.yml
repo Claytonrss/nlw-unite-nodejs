@@ -32,5 +32,8 @@ jobs:
 
       - name: Push docker image
         run: |
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/nlw.services.passin:${{ steps.generate_sha.outputs.sha }}
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/nlw.services.passin:${{ steps.generate_sha.outputs.sha }} 
+          docker tag ${{ secrets.DOCKERHUB_USERNAME }}/nlw.services.passin:${{ steps.generate_sha.outputs.sha }} ${{ secrets.DOCKERHUB_USERNAME }}/nlw.services.passin:latest
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/nlw.services.passin:latest
+
        
