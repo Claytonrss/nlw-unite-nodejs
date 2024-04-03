@@ -55,7 +55,7 @@ CREATE TABLE "events" (
 
 -- CreateTable
 CREATE TABLE "attendees" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "id" serial NOT NULL PRIMARY KEY,
     "name" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "event_id" TEXT NOT NULL,
@@ -65,7 +65,7 @@ CREATE TABLE "attendees" (
 
 -- CreateTable
 CREATE TABLE "check_ins" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "id" serial NOT NULL PRIMARY KEY,
     "created_at" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "attendeeId" INTEGER NOT NULL,
     CONSTRAINT "check_ins_attendeeId_fkey" FOREIGN KEY ("attendeeId") REFERENCES "attendees" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
